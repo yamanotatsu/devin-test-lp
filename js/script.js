@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
         ja: {}
     };
 
+    // Store the initial Japanese text so that switching back works properly
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        translations.ja[key] = el.innerHTML;
+    });
+
     const applyTranslations = (lang) => {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
