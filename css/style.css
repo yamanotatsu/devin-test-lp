@@ -877,6 +877,95 @@ section:last-of-type::after {
     display: none;
 }
 
+/* Testimonials slider */
+#testimonials .testimonial-slider {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 120px;
+}
+
+#testimonials .testimonial {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#testimonials .testimonial.active {
+    opacity: 1;
+    position: relative;
+}
+
+#testimonials .testimonial-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#testimonials .testimonial-author {
+    font-weight: bold;
+}
+
+/* FAQ accordion */
+#faq .faq-item {
+    margin-bottom: 15px;
+    border: 1px solid var(--neon-blue);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#faq .faq-question {
+    background: var(--darker-blue);
+    padding: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+#faq .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-weight: bold;
+}
+
+#faq .faq-item.open .faq-question::after {
+    content: '-';
+}
+
+#faq .faq-answer {
+    display: none;
+    padding: 15px;
+    background: var(--deep-blue);
+}
+
+#faq .faq-item.open .faq-answer {
+    display: block;
+}
+
+/* Scroll to top button */
+#scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--neon-blue);
+    color: var(--deep-blue);
+    border: none;
+    border-radius: 50%;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-size: 1.2rem;
+}
+
+#scroll-top.show {
+    display: block;
+}
+
 /* Responsive styles */
 @media (max-width: 992px) {
     .vision-title {

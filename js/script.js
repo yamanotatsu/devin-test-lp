@@ -93,8 +93,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 observer.unobserve(statsSection);
             }
         }, { threshold: 0.5 });
-        
+
         observer.observe(statsSection);
+    }
+
+    /* Hero animation using GSAP */
+    if (window.gsap) {
+        gsap.from('.vision-subtitle', {y: 20, opacity: 0, duration: 1});
+        gsap.from('.vision-title', {y: 40, opacity: 0, duration: 1, delay: 0.2});
+        gsap.from('.vision-description', {y: 40, opacity: 0, duration: 1, delay: 0.4});
+        gsap.from('.vision-motto', {y: 40, opacity: 0, duration: 1, delay: 0.6});
+        gsap.from('.cta-button', {y: 40, opacity: 0, duration: 1, delay: 0.8});
+    }
+
+    /* Testimonials slider */
+    const testimonials = document.querySelectorAll('#testimonials .testimonial');
+    if (testimonials.length > 0) {
+        let currentTestimonial = 0;
+        setInterval(() => {
+            testimonials[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
+        }, 5000);
+    }
+
+    /* FAQ accordion */
+    document.querySelectorAll('#faq .faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            item.classList.toggle('open');
+        });
+    });
+
+    /* Scroll to top button */
+    const scrollTopBtn = document.getElementById('scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight / 2) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
     }
     
     window.addEventListener('scroll', function() {
