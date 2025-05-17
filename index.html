@@ -13,8 +13,11 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/script.js" defer></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body>
+<body data-theme="dark">
     <!-- Header section -->
     <header id="header">
         <div class="container">
@@ -33,6 +36,12 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <div class="theme-toggle">
+                <button id="theme-switch"><i class="fas fa-moon"></i></button>
+            </div>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
         </div>
     </header>
 
@@ -41,13 +50,13 @@
         <div class="hexagon-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <h2 class="vision-subtitle">OUR VISION</h2>
-                <h1 class="vision-title">最適化×最大化</h1>
-                <h3 class="vision-description">誰もが自分の得意を活かし、最高の価値を生み出せる世界を創る</h3>
-                <p class="vision-text">ビジネスの現場には、面倒な手続きや複雑な開発、やらなくてもいい業務があふれている。そんな無駄に時間を奪われて、やるべきことに集中できないのは、もったいなさすぎる。</p>
-                <p class="vision-text">我々が、東大 × AIの力で、徹底的に自動化し、プロフェッショナルが巻き取る。</p>
-                <h3 class="vision-motto">「好きなこと、得意なことに没頭する」<br>それが、ビジネスの最大の成長エンジンになると信じている。</h3>
-                <div class="cta-button">
+                <h2 class="vision-subtitle fade-in-up">OUR VISION</h2>
+                <h1 class="vision-title typing-animation">最適化×最大化</h1>
+                <h3 class="vision-description fade-in-up delay-300">誰もが自分の得意を活かし、最高の価値を生み出せる世界を創る</h3>
+                <p class="vision-text fade-in-up delay-400">ビジネスの現場には、面倒な手続きや複雑な開発、やらなくてもいい業務があふれている。そんな無駄に時間を奪われて、やるべきことに集中できないのは、もったいなさすぎる。</p>
+                <p class="vision-text fade-in-up delay-500">我々が、東大 × AIの力で、徹底的に自動化し、プロフェッショナルが巻き取る。</p>
+                <h3 class="vision-motto fade-in-up delay-600">「好きなこと、得意なことに没頭する」<br>それが、ビジネスの最大の成長エンジンになると信じている。</h3>
+                <div class="cta-button fade-in-up delay-700">
                     <a href="#contact">お問い合わせはこちら</a>
                 </div>
             </div>
@@ -65,7 +74,7 @@
                 <h2 class="section-title">東大 × AI ＝ 圧倒的な業務最適化</h2>
                 
                 <div class="strengths-container">
-                    <div class="strength-item">
+                    <div class="strength-item fade-in-left delay-100">
                         <div class="strength-icon">
                             <i class="fas fa-brain"></i>
                         </div>
@@ -73,7 +82,7 @@
                         <p>常に最先端のAI技術をキャッチアップし、業務フローに組み込むことでムダを徹底的に削減。人間がやるべき仕事にフォーカスできる環境を提供します。</p>
                     </div>
                     
-                    <div class="strength-item">
+                    <div class="strength-item fade-in-left delay-200">
                         <div class="strength-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
@@ -81,12 +90,38 @@
                         <p>私たちは、ほぼ全員が東大出身のプロフェッショナル集団。複雑なシステム開発、データ分析、補助金申請など、どんな課題でも素早く理解し、最適解を導きます。</p>
                     </div>
                     
-                    <div class="strength-item">
+                    <div class="strength-item fade-in-left delay-300">
                         <div class="strength-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>システム開発 × デザイン × 補助金申請までトータルサポート</h3>
                         <p>エンジニアだけでなく、デザイナーや補助金申請の専門家も在籍。単なる受託開発ではなく、ビジネスの成長に寄り添う長期的なコンサルティングまで対応可能。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats section -->
+    <section id="stats">
+        <div class="hexagon-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>ACHIEVEMENT</h2>
+            </div>
+            <div class="section-content">
+                <div class="stats-container">
+                    <div class="stat-item fade-in-up delay-100">
+                        <div class="stat-number"><span class="counter" data-target="150">0</span><span>+</span></div>
+                        <div class="stat-title">プロジェクト実績</div>
+                    </div>
+                    <div class="stat-item fade-in-up delay-200">
+                        <div class="stat-number"><span class="counter" data-target="98">0</span><span>%</span></div>
+                        <div class="stat-title">顧客満足度</div>
+                    </div>
+                    <div class="stat-item fade-in-up delay-300">
+                        <div class="stat-number"><span class="counter" data-target="30">0</span><span>+</span></div>
+                        <div class="stat-title">AI導入実績</div>
                     </div>
                 </div>
             </div>
@@ -104,7 +139,7 @@
                 <h2 class="section-title">サービス内容</h2>
                 
                 <div class="services-container">
-                    <div class="service-item">
+                    <div class="service-item fade-in-up delay-100">
                         <div class="service-icon">
                             <i class="fas fa-robot"></i>
                         </div>
@@ -115,7 +150,7 @@
                         </div>
                     </div>
                     
-                    <div class="service-item">
+                    <div class="service-item fade-in-up delay-200">
                         <div class="service-icon">
                             <i class="fas fa-code"></i>
                         </div>
@@ -126,7 +161,7 @@
                         </div>
                     </div>
                     
-                    <div class="service-item">
+                    <div class="service-item fade-in-up delay-300">
                         <div class="service-icon">
                             <i class="fas fa-file-invoice"></i>
                         </div>
