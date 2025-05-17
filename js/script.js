@@ -4,6 +4,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const langSwitch = document.getElementById('lang-switch');
     const progressBar = document.getElementById('scroll-progress');
+    if (window.particlesJS) {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 40 },
+                color: { value: '#00D2FF' },
+                size: { value: 3 },
+                line_linked: { enable: true, color: '#00D2FF' }
+            },
+            interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
+        });
+    }
+
+    const hero = document.getElementById('hero');
+    if (hero) {
+        hero.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            const front = document.querySelector('.layer-front');
+            const back = document.querySelector('.layer-back');
+            if (front) {
+                front.style.transform = `translate(${x}px, ${y}px) translateZ(-1px) scale(2)`;
+            }
+            if (back) {
+                back.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px) translateZ(-2px) scale(3)`;
+            }
+        });
+    }
 
     const translations = {
         en: {
@@ -194,10 +221,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
-    
+
     if (hamburger && menu) {
         hamburger.addEventListener('click', function() {
             menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
     }
     
@@ -233,10 +261,27 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Hero animation using GSAP */
     if (window.gsap) {
         gsap.from('.vision-subtitle', {y: 20, opacity: 0, duration: 1});
-        gsap.from('.vision-title', {y: 40, opacity: 0, duration: 1, delay: 0.2});
+        gsap.from('.vision-title', {rotationX: 90, opacity: 0, duration: 1.2, delay: 0.2, transformOrigin: 'center bottom'});
         gsap.from('.vision-description', {y: 40, opacity: 0, duration: 1, delay: 0.4});
         gsap.from('.vision-motto', {y: 40, opacity: 0, duration: 1, delay: 0.6});
         gsap.from('.cta-button', {y: 40, opacity: 0, duration: 1, delay: 0.8});
+
+        if (window.ScrollTrigger) {
+            document.querySelectorAll('section').forEach(sec => {
+                const content = sec.querySelector('.section-content');
+                if (content) {
+                    gsap.from(content, {
+                        scrollTrigger: {
+                            trigger: sec,
+                            start: 'top 80%'
+                        },
+                        y: 50,
+                        opacity: 0,
+                        duration: 0.8
+                    });
+                }
+            });
+        }
     }
 
     /* Testimonials slider */
@@ -280,18 +325,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
-        
+        const header = document.getElementById('header');
+
+        if (header) {
+            if (scrollPosition > 50) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+        }
+
         if (scrollPosition < window.innerHeight) {
             const heroContent = document.querySelector('.hero-content');
             const parallaxSpeed = 0.5;
-            
+
             if (heroContent) {
                 heroContent.style.transform = `translateY(${scrollPosition * parallaxSpeed}px)`;
             }
-            
+
             const heroBg = document.querySelector('#hero .hexagon-bg');
             if (heroBg) {
                 heroBg.style.transform = `translateY(${scrollPosition * -0.2}px)`;
+            }
+
+            const back = document.querySelector('.layer-back');
+            const front = document.querySelector('.layer-front');
+            if (back) {
+                back.style.transform = `translateY(${scrollPosition * -0.1}px) translateZ(-2px) scale(3)`;
+            }
+            if (front) {
+                front.style.transform = `translateY(${scrollPosition * -0.3}px) translateZ(-1px) scale(2)`;
             }
         }
     });
