@@ -17,7 +17,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body data-theme="dark">
+<body data-theme="dark" data-lang="ja">
+    <div id="scroll-progress"></div>
     <!-- Header section -->
     <header id="header">
         <div class="container">
@@ -41,6 +42,9 @@
             <div class="theme-toggle">
                 <button id="theme-switch"><i class="fas fa-moon"></i></button>
             </div>
+            <div class="language-toggle">
+                <button id="lang-switch">EN</button>
+            </div>
             <div class="hamburger">
                 <span></span><span></span><span></span>
             </div>
@@ -52,14 +56,14 @@
         <div class="hexagon-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <h2 class="vision-subtitle fade-in-up">OUR VISION</h2>
-                <h1 class="vision-title typing-animation">最適化×最大化</h1>
-                <h3 class="vision-description fade-in-up delay-300">誰もが自分の得意を活かし、最高の価値を生み出せる世界を創る</h3>
-                <p class="vision-text fade-in-up delay-400">ビジネスの現場には、面倒な手続きや複雑な開発、やらなくてもいい業務があふれている。そんな無駄に時間を奪われて、やるべきことに集中できないのは、もったいなさすぎる。</p>
-                <p class="vision-text fade-in-up delay-500">我々が、東大 × AIの力で、徹底的に自動化し、プロフェッショナルが巻き取る。</p>
-                <h3 class="vision-motto fade-in-up delay-600">「好きなこと、得意なことに没頭する」<br>それが、ビジネスの最大の成長エンジンになると信じている。</h3>
+                <h2 class="vision-subtitle fade-in-up" data-i18n="hero_subtitle">OUR VISION</h2>
+                <h1 class="vision-title typing-animation" data-i18n="hero_title">最適化×最大化</h1>
+                <h3 class="vision-description fade-in-up delay-300" data-i18n="hero_description">誰もが自分の得意を活かし、最高の価値を生み出せる世界を創る</h3>
+                <p class="vision-text fade-in-up delay-400" data-i18n="hero_text1">ビジネスの現場には、面倒な手続きや複雑な開発、やらなくてもいい業務があふれている。そんな無駄に時間を奪われて、やるべきことに集中できないのは、もったいなさすぎる。</p>
+                <p class="vision-text fade-in-up delay-500" data-i18n="hero_text2">我々が、東大 × AIの力で、徹底的に自動化し、プロフェッショナルが巻き取る。</p>
+                <h3 class="vision-motto fade-in-up delay-600" data-i18n="hero_motto">「好きなこと、得意なことに没頭する」<br>それが、ビジネスの最大の成長エンジンになると信じている。</h3>
                 <div class="cta-button fade-in-up delay-700">
-                    <a href="#contact">お問い合わせはこちら</a>
+                    <a href="#contact" data-i18n="contact_btn">お問い合わせはこちら</a>
                 </div>
             </div>
         </div>
@@ -73,31 +77,31 @@
                 <h2>STRENGTH</h2>
             </div>
             <div class="section-content">
-                <h2 class="section-title">東大 × AI ＝ 圧倒的な業務最適化</h2>
+                <h2 class="section-title" data-i18n="strengths_title">東大 × AI ＝ 圧倒的な業務最適化</h2>
                 
                 <div class="strengths-container">
                     <div class="strength-item fade-in-left delay-100">
                         <div class="strength-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <h3>最新のAI技術を活用し、業務を自動化・最適化</h3>
-                        <p>常に最先端のAI技術をキャッチアップし、業務フローに組み込むことでムダを徹底的に削減。人間がやるべき仕事にフォーカスできる環境を提供します。</p>
+                        <h3 data-i18n="strength1_title">最新のAI技術を活用し、業務を自動化・最適化</h3>
+                        <p data-i18n="strength1_desc">常に最先端のAI技術をキャッチアップし、業務フローに組み込むことでムダを徹底的に削減。人間がやるべき仕事にフォーカスできる環境を提供します。</p>
                     </div>
                     
                     <div class="strength-item fade-in-left delay-200">
                         <div class="strength-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <h3>ハイレベルなメンバーによる圧倒的な思考力とスピード</h3>
-                        <p>私たちは、ほぼ全員が東大出身のプロフェッショナル集団。複雑なシステム開発、データ分析、補助金申請など、どんな課題でも素早く理解し、最適解を導きます。</p>
+                        <h3 data-i18n="strength2_title">ハイレベルなメンバーによる圧倒的な思考力とスピード</h3>
+                        <p data-i18n="strength2_desc">私たちは、ほぼ全員が東大出身のプロフェッショナル集団。複雑なシステム開発、データ分析、補助金申請など、どんな課題でも素早く理解し、最適解を導きます。</p>
                     </div>
                     
                     <div class="strength-item fade-in-left delay-300">
                         <div class="strength-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3>システム開発 × デザイン × 補助金申請までトータルサポート</h3>
-                        <p>エンジニアだけでなく、デザイナーや補助金申請の専門家も在籍。単なる受託開発ではなく、ビジネスの成長に寄り添う長期的なコンサルティングまで対応可能。</p>
+                        <h3 data-i18n="strength3_title">システム開発 × デザイン × 補助金申請までトータルサポート</h3>
+                        <p data-i18n="strength3_desc">エンジニアだけでなく、デザイナーや補助金申請の専門家も在籍。単なる受託開発ではなく、ビジネスの成長に寄り添う長期的なコンサルティングまで対応可能。</p>
                     </div>
                 </div>
             </div>
@@ -115,15 +119,15 @@
                 <div class="stats-container">
                     <div class="stat-item fade-in-up delay-100">
                         <div class="stat-number"><span class="counter" data-target="150">0</span><span>+</span></div>
-                        <div class="stat-title">プロジェクト実績</div>
+                        <div class="stat-title" data-i18n="stat_projects">プロジェクト実績</div>
                     </div>
                     <div class="stat-item fade-in-up delay-200">
                         <div class="stat-number"><span class="counter" data-target="98">0</span><span>%</span></div>
-                        <div class="stat-title">顧客満足度</div>
+                        <div class="stat-title" data-i18n="stat_satisfaction">顧客満足度</div>
                     </div>
                     <div class="stat-item fade-in-up delay-300">
                         <div class="stat-number"><span class="counter" data-target="30">0</span><span>+</span></div>
-                        <div class="stat-title">AI導入実績</div>
+                        <div class="stat-title" data-i18n="stat_ai">AI導入実績</div>
                     </div>
                 </div>
             </div>
@@ -138,17 +142,17 @@
                 <h2>SERVICE</h2>
             </div>
             <div class="section-content">
-                <h2 class="section-title">サービス内容</h2>
+                <h2 class="section-title" data-i18n="services_title">サービス内容</h2>
                 
                 <div class="services-container">
                     <div class="service-item fade-in-up delay-100">
                         <div class="service-icon">
                             <i class="fas fa-robot"></i>
                         </div>
-                        <h3>AIエージェント開発</h3>
-                        <p>最先端のAI技術を活用し、業務効率を最大化するAIエージェントを開発。チャットボット、タスク自動化、データ分析など、あなたのビジネスに最適なAIソリューションを提供します。</p>
+                        <h3 data-i18n="service1_title">AIエージェント開発</h3>
+                        <p data-i18n="service1_desc">最先端のAI技術を活用し、業務効率を最大化するAIエージェントを開発。チャットボット、タスク自動化、データ分析など、あなたのビジネスに最適なAIソリューションを提供します。</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn">お問い合わせ</a>
+                            <a href="#contact" class="btn" data-i18n="contact_btn">お問い合わせ</a>
                         </div>
                     </div>
                     
@@ -156,10 +160,10 @@
                         <div class="service-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3>システム開発</h3>
-                        <p>「スピード × 丸投げOK」で、最短ルートの開発を実現。要件が固まっていなくても大丈夫。課題の整理から設計、開発、運用保守まですべてお任せください。</p>
+                        <h3 data-i18n="service2_title">システム開発</h3>
+                        <p data-i18n="service2_desc">「スピード × 丸投げOK」で、最短ルートの開発を実現。要件が固まっていなくても大丈夫。課題の整理から設計、開発、運用保守まですべてお任せください。</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn">お問い合わせ</a>
+                            <a href="#contact" class="btn" data-i18n="contact_btn">お問い合わせ</a>
                         </div>
                     </div>
                     
@@ -167,10 +171,10 @@
                         <div class="service-icon">
                             <i class="fas fa-file-invoice"></i>
                         </div>
-                        <h3>補助金採択くん</h3>
-                        <p>補助金・助成金を最大限活用し、ビジネスの成長をサポート。複雑な申請プロセスを代行し、採択率を高めるための戦略的な書類作成を実施。</p>
+                        <h3 data-i18n="service3_title">補助金採択くん</h3>
+                        <p data-i18n="service3_desc">補助金・助成金を最大限活用し、ビジネスの成長をサポート。複雑な申請プロセスを代行し、採択率を高めるための戦略的な書類作成を実施。</p>
                         <div class="service-cta">
-                            <a href="#contact" class="btn">お問い合わせ</a>
+                            <a href="#contact" class="btn" data-i18n="contact_btn">お問い合わせ</a>
                         </div>
                     </div>
                 </div>
@@ -212,10 +216,10 @@
                 <h2>RECRUITMENT</h2>
             </div>
             <div class="section-content">
-                <h2 class="section-title">東大生エンジニアインターン生限定募集<br>圧倒的な成長環境を提供</h2>
-                <p>私たちは、最先端のAI技術と高度な専門知識を活かし、ビジネスの課題を解決するプロフェッショナル集団です。「優秀な環境で、圧倒的なスピードで成長したい」そんな志の高いエンジニアインターン生を募集します。</p>
+                <h2 class="section-title" data-i18n="recruitment_title">東大生エンジニアインターン生限定募集<br>圧倒的な成長環境を提供</h2>
+                <p data-i18n="recruitment_desc">私たちは、最先端のAI技術と高度な専門知識を活かし、ビジネスの課題を解決するプロフェッショナル集団です。「優秀な環境で、圧倒的なスピードで成長したい」そんな志の高いエンジニアインターン生を募集します。</p>
                 <div class="recruitment-cta">
-                    <a href="#contact" class="btn">お問い合わせ</a>
+                    <a href="#contact" class="btn" data-i18n="contact_btn">お問い合わせ</a>
                 </div>
             </div>
         </div>
@@ -234,7 +238,7 @@
                         <div class="company-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h3>会社情報</h3>
+                        <h3 data-i18n="company_info">会社情報</h3>
                         <dl>
                             <dt>会社名</dt>
                             <dd>株式会社OptiMax</dd>
@@ -268,16 +272,16 @@
             </div>
             <div class="section-content">
                 <div class="faq-item">
-                    <div class="faq-question">サービスの相談は無料ですか？</div>
-                    <div class="faq-answer">はい、初回のご相談は無料で承っております。</div>
+                    <div class="faq-question" data-i18n="faq_q1">サービスの相談は無料ですか？</div>
+                    <div class="faq-answer" data-i18n="faq_a1">はい、初回のご相談は無料で承っております。</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">AI導入までどれくらいの期間が必要ですか？</div>
-                    <div class="faq-answer">内容によりますが、最短1ヶ月での導入が可能です。</div>
+                    <div class="faq-question" data-i18n="faq_q2">AI導入までどれくらいの期間が必要ですか？</div>
+                    <div class="faq-answer" data-i18n="faq_a2">内容によりますが、最短1ヶ月での導入が可能です。</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">遠方からの依頼も可能ですか？</div>
-                    <div class="faq-answer">オンラインでの打ち合わせを中心に、全国からご依頼いただけます。</div>
+                    <div class="faq-question" data-i18n="faq_q3">遠方からの依頼も可能ですか？</div>
+                    <div class="faq-answer" data-i18n="faq_a3">オンラインでの打ち合わせを中心に、全国からご依頼いただけます。</div>
                 </div>
             </div>
         </div>
@@ -291,25 +295,25 @@
                 <h2>CONTACT</h2>
             </div>
             <div class="section-content">
-                <h2 class="section-title">お問い合わせ</h2>
-                <p class="contact-intro">サービス内容、採用エントリーなど、お気軽にお問い合わせください。</p>
+                <h2 class="section-title" data-i18n="contact_title">お問い合わせ</h2>
+                <p class="contact-intro" data-i18n="contact_intro">サービス内容、採用エントリーなど、お気軽にお問い合わせください。</p>
                 
                 <div class="contact-form">
                     <form>
                         <div class="form-group">
-                            <label for="name">お名前</label>
+                            <label for="name" data-i18n="form_name">お名前</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">メールアドレス</label>
+                            <label for="email" data-i18n="form_email">メールアドレス</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">お問い合わせ内容</label>
+                            <label for="message" data-i18n="form_message">お問い合わせ内容</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
                         <div class="form-submit">
-                            <button type="submit">送信する</button>
+                            <button type="submit" data-i18n="submit_btn">送信する</button>
                         </div>
                     </form>
                 </div>
@@ -325,7 +329,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2023 株式会社OptiMax All Rights Reserved.</p>
+                <p data-i18n="footer_copy">&copy; 2023 株式会社OptiMax All Rights Reserved.</p>
             </div>
         </div>
     </footer>

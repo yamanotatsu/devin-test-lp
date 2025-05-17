@@ -172,6 +172,26 @@ nav {
     margin-right: 20px;
 }
 
+/* Language Toggle */
+.language-toggle {
+    margin-right: 20px;
+}
+
+#lang-switch {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+#lang-switch:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 #theme-switch {
     background: none;
     border: none;
@@ -943,6 +963,17 @@ section:last-of-type::after {
 
 #faq .faq-item.open .faq-answer {
     display: block;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0;
+    background: var(--neon-blue);
+    z-index: 1001;
 }
 
 /* Scroll to top button */

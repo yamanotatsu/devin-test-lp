@@ -1,6 +1,82 @@
 document.addEventListener('DOMContentLoaded', function() {
     const themeSwitch = document.getElementById('theme-switch');
     const themeIcon = themeSwitch.querySelector('i');
+
+    const langSwitch = document.getElementById('lang-switch');
+    const progressBar = document.getElementById('scroll-progress');
+
+    const translations = {
+        en: {
+            hero_subtitle: 'OUR VISION',
+            hero_title: 'Optimization \u00D7 Maximization',
+            hero_description: 'Creating a world where everyone can leverage their strengths to create the greatest value',
+            hero_text1: 'There are tedious procedures and unnecessary tasks in business. Losing time to them and not focusing on what matters is a waste.',
+            hero_text2: 'With the power of the University of Tokyo and AI, we automate thoroughly and let professionals handle it.',
+            hero_motto: '\"Immerse yourself in what you love and are good at\"\nThis is the greatest engine for business growth.',
+            contact_btn: 'Contact',
+            strengths_title: 'University of Tokyo \u00D7 AI = Overwhelming business optimization',
+            strength1_title: 'Automate and optimize operations with cutting-edge AI',
+            strength1_desc: 'We constantly catch up with the latest AI technology and incorporate it into workflows to eliminate waste so you can focus on what matters.',
+            strength2_title: 'High-level members with exceptional thinking and speed',
+            strength2_desc: 'Our team of mostly University of Tokyo graduates swiftly understands any challenge and finds the optimal solution.',
+            strength3_title: 'Total support from development to design and subsidies',
+            strength3_desc: 'Engineers, designers and subsidy specialists collaborate to provide long-term consulting for business growth.',
+            stat_projects: 'Projects',
+            stat_satisfaction: 'Customer satisfaction',
+            stat_ai: 'AI implementations',
+            services_title: 'Services',
+            service1_title: 'AI Agent Development',
+            service1_desc: 'We develop AI agents that maximize efficiency such as chatbots, automation and data analysis.',
+            service2_title: 'System Development',
+            service2_desc: 'We handle everything from requirement definition to operation so you can leave it all to us.',
+            service3_title: 'Subsidy Support',
+            service3_desc: 'We handle complex applications to maximize subsidies and grants.',
+            recruitment_title: 'Recruiting University of Tokyo engineering interns\nProviding overwhelming growth environment',
+            recruitment_desc: 'We solve business issues with cutting-edge AI and expertise. Join us if you want to grow at high speed.',
+            company_info: 'Company Info',
+            faq_q1: 'Is the initial consultation free?',
+            faq_a1: 'Yes, the first consultation is free of charge.',
+            faq_q2: 'How long does it take to introduce AI?',
+            faq_a2: 'Depending on the content, it can be introduced in as little as one month.',
+            faq_q3: 'Can you handle requests from distant locations?',
+            faq_a3: 'We mainly meet online, so we can work with clients nationwide.',
+            contact_title: 'Contact',
+            contact_intro: 'Feel free to contact us regarding our services or recruitment.',
+            form_name: 'Name',
+            form_email: 'Email',
+            form_message: 'Message',
+            submit_btn: 'Send',
+            footer_copy: '© 2023 OptiMax Inc. All Rights Reserved.'
+        },
+        ja: {}
+    };
+
+    const applyTranslations = (lang) => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+        document.body.setAttribute('data-lang', lang);
+        langSwitch.textContent = lang === 'ja' ? 'EN' : 'JA';
+    };
+
+    const savedLang = localStorage.getItem('lang') || 'ja';
+    applyTranslations(savedLang);
+
+    langSwitch.addEventListener('click', () => {
+        const current = document.body.getAttribute('data-lang') || 'ja';
+        const newLang = current === 'ja' ? 'en' : 'ja';
+        localStorage.setItem('lang', newLang);
+        applyTranslations(newLang);
+    });
+
+    if (progressBar) {
+        const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / scrollTotal) * 100;
+        progressBar.style.width = progress + '%';
+    }
     
     themeSwitch.addEventListener('click', function() {
         if (document.body.getAttribute('data-theme') === 'light') {
@@ -133,6 +209,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTopBtn.classList.add('show');
             } else {
                 scrollTopBtn.classList.remove('show');
+            }
+            if (progressBar) {
+                const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / scrollTotal) * 100;
+                progressBar.style.width = progress + '%';
             }
         });
         scrollTopBtn.addEventListener('click', () => {
