@@ -18,10 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
-    
+
     if (hamburger && menu) {
         hamburger.addEventListener('click', function() {
             menu.classList.toggle('active');
+        });
+
+        hamburger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                menu.classList.toggle('active');
+            }
         });
     }
 });

@@ -153,6 +153,21 @@ nav {
     color: var(--neon-blue);
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
 /* Hexagon Background */
 .hexagon-bg {
     position: absolute;
@@ -620,9 +635,28 @@ footer p {
     .company-info dd {
         padding-top: 5px;
     }
-    
+
     .menu {
         display: none;
+    }
+
+    .menu.active {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 100%;
+        flex-direction: column;
+        background-color: var(--darker-blue);
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .menu.active li {
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: flex;
     }
 }
 
