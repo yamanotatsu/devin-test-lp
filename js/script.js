@@ -62,8 +62,51 @@ document.addEventListener('DOMContentLoaded', function() {
             submit_btn: 'Send',
             footer_copy: '© 2023 OptiMax Inc. All Rights Reserved.'
         },
-        ja: {}
+        ja: {
+            hero_subtitle: 'OUR VISION',
+            hero_title: '最適化×最大化',
+            hero_description: '誰もが自分の得意を活かし、最高の価値を生み出せる世界を創る',
+            hero_text1: 'ビジネスの現場には、面倒な手続きや複雑な開発、やらなくてもいい業務があふれている。そんな無駄に時間を奪われて、やるべきことに集中できないのは、もったいなさすぎる。',
+            hero_text2: '我々が、東大 × AIの力で、徹底的に自動化し、プロフェッショナルが巻き取る。',
+            hero_motto: '「好きなこと、得意なことに没頭する」<br>それが、ビジネスの最大の成長エンジンになると信じている。',
+            contact_btn: 'お問い合わせ',
+            strengths_title: '東大 × AI ＝ 圧倒的な業務最適化',
+            strength1_title: '最新のAI技術を活用し、業務を自動化・最適化',
+            strength1_desc: '常に最先端のAI技術をキャッチアップし、業務フローに組み込むことでムダを徹底的に削減。人間がやるべき仕事にフォーカスできる環境を提供します。',
+            strength2_title: 'ハイレベルなメンバーによる圧倒的な思考力とスピード',
+            strength2_desc: '私たちは、ほぼ全員が東大出身のプロフェッショナル集団。複雑なシステム開発、データ分析、補助金申請など、どんな課題でも素早く理解し、最適解を導きます。',
+            strength3_title: 'システム開発 × デザイン × 補助金申請までトータルサポート',
+            strength3_desc: 'エンジニアだけでなく、デザイナーや補助金申請の専門家も在籍。単なる受託開発ではなく、ビジネスの成長に寄り添う長期的なコンサルティングまで対応可能。',
+            stat_projects: 'プロジェクト実績',
+            stat_satisfaction: '顧客満足度',
+            stat_ai: 'AI導入実績',
+            services_title: 'サービス内容',
+            service1_title: 'AIエージェント開発',
+            service1_desc: '最先端のAI技術を活用し、業務効率を最大化するAIエージェントを開発。チャットボット、タスク自動化、データ分析など、あなたのビジネスに最適なAIソリューションを提供します。',
+            service2_title: 'システム開発',
+            service2_desc: '「スピード × 丸投げOK」で、最短ルートの開発を実現。要件が固まっていなくても大丈夫。課題の整理から設計、開発、運用保守まですべてお任せください。',
+            service3_title: '補助金採択くん',
+            service3_desc: '補助金・助成金を最大限活用し、ビジネスの成長をサポート。複雑な申請プロセスを代行し、採択率を高めるための戦略的な書類作成を実施。',
+            recruitment_title: '東大生エンジニアインターン生限定募集<br>圧倒的な成長環境を提供',
+            recruitment_desc: '私たちは、最先端のAI技術と高度な専門知識を活かし、ビジネスの課題を解決するプロフェッショナル集団です。「優秀な環境で、圧倒的なスピードで成長したい」そんな志の高いエンジニアインターン生を募集します。',
+            company_info: '会社情報',
+            faq_q1: 'サービスの相談は無料ですか？',
+            faq_a1: 'はい、初回のご相談は無料で承っております。',
+            faq_q2: 'AI導入までどれくらいの期間が必要ですか？',
+            faq_a2: '内容によりますが、最短1ヶ月での導入が可能です。',
+            faq_q3: '遠方からの依頼も可能ですか？',
+            faq_a3: 'オンラインでの打ち合わせを中心に、全国からご依頼いただけます。',
+            contact_title: 'お問い合わせ',
+            contact_intro: 'サービス内容、採用エントリーなど、お気軽にお問い合わせください。',
+            form_name: 'お名前',
+            form_email: 'メールアドレス',
+            form_message: 'お問い合わせ内容',
+            submit_btn: '送信する',
+            footer_copy: '© 2023 株式会社OptiMax All Rights Reserved.'
+        }
     };
+
+    // Apply translations to elements with data-i18n
 
     const applyTranslations = (lang) => {
         document.querySelectorAll('[data-i18n]').forEach(el => {
